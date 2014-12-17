@@ -3,10 +3,11 @@
 # deployApp()
 
 library(shiny)
+src_code <- "http://github.com/dereksz/DataProd"
 
 shinyUI(pageWithSidebar(
   
-  headerPanel("mtcars Linear Modeller"),
+  headerPanel("mtcars Linear Modeler"),
   
   sidebarPanel( 
     checkboxGroupInput('factors',  label='Factors', choices=colnames(cars)[-1],
@@ -53,7 +54,8 @@ shinyUI(pageWithSidebar(
                     dt("Custom Plot"), dd("Provides an area to define an arbitrary ggplot or base plot graphics for
                                           further analysis.  The model itself is available as 'fit()' if you wish to
                                           plot data off of the model itself.")
-                 )})
+                 )}),
+               p("Source code is available here:", a(href=src_code, target="_blank", src_code))
                ),
       tabPanel("Summary", verbatimTextOutput('summary')),
       tabPanel("Coefficients",dataTableOutput('coef')),
