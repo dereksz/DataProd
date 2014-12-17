@@ -1,6 +1,6 @@
 ## Welcome to the mtcars Linear Modeler
 
-This modeler allows you to select which coefficients from the list on the left
+This modeller allows you to select which coefficients from the list on the left
 that you would like to include in your linear model, and will automatically
 refresh the various tabs in this notebook to reflect your changes.
 
