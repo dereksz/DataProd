@@ -1,0 +1,67 @@
+The mtcars Linear Modeler Application
+========================================================
+author: Derek Slone-Zhen
+date: 17 December 2014
+transition: rotate
+width: 1400
+height: 850
+
+Introduction - Fitting a Linear Model
+========================================================
+
+The [mtcars Linear Modeler](http://dereksz.shinyapps.io/mtcars-Linear-Modeler/)
+is a fabuleous application for exploring your first linear regression model
+using `R`s [`lm`](http://stat.ethz.ch/R-manual/R-patched/library/stats/html/lm.html)
+function from the builtin [stats](http://stat.ethz.ch/R-manual/R-patched/library/stats/html/00Index.html) package.
+
+R is a very powerful modelling environment.  In just very small 
+amount of code it is possbile to have R solve quite complex modeling
+problems.  A simple linear regrassion model can be fitted just with:
+
+```{r}
+fit <- lm(mpg ~ wt + am, data = mtcars)
+```
+
+And the reults shown with:
+```r
+summary(fit)
+```
+
+Linear Model Output
+========================================================
+
+```{r, echo=FALSE}
+ summary(fit)
+```
+
+
+And Graphs
+========================================================
+
+- And the "goodness" of the fit can be determined through 
+diagnostic plots:
+
+```{r plot, width=1000}
+plot(fit,1); plot(fit,2); 
+```
+
+But Why an Interactive Application For This?
+========================================================
+
+Because, with an interactive application, you can focus 
+you attention on the **changes** that happen to the 
+numbers or the graphs as you add or remove explanatory
+variables from the fit.
+
+The eye reacts well to these 
+"moving images" and picks up on the changes in the 
+images much better than if it had to flick focus
+between two different graphs or tables.
+
+This app
+will certainly make it quicker for you to complete
+your factor selection processes.
+
+Go to the app site NOW!!
+
+<http://dereksz.shinyapps.io/mtcars-Linear-Modeler/>
