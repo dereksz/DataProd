@@ -1,9 +1,9 @@
 # To Deploy
+# devtools::install_github("rstudio/shinyapps")
 # library(shinyapps)
-# deployApp()
+# shinyapps::deployApp(appName="mtcars-Linear-Modeler")
 
 library(shiny)
-src_code <- "http://github.com/dereksz/DataProd"
 
 shinyUI(pageWithSidebar(
   
@@ -17,46 +17,7 @@ shinyUI(pageWithSidebar(
   
   mainPanel(
     tabsetPanel(
-      tabPanel("Welcome",
-               h2("Welcome to the mtcars Linear Modeler"),
-               helpText(p("This modeler allows you to select which coefficients you would like to 
-                        include in your linear model and will automatically refresh the various tabs
-                        in this notebook to reflect your changes."),
-                        p("One useful way to use this tool is to select the tab you want to have open
-                        and watch while you change the factors to be fitted, then watch that tab change 
-                        in response to you adding and removing explanatory factors."),
-                        p("The tabs here provide:")),
-               withTags({
-                 dl(
-                    dt("Summary"), dd("The R 'summary' of the model"),
-                    dt("Coefficients"), dd("The Calculated Coefficients extracted from the summary,
-                                           and displayed in a table that allows for easy sorting.
-                                           (E.g. you may want to sort by p-value to see which coefficients
-                                           have the highest confidence.)"),
-                    dt("Conf Int"), dd("95% Confidence intervals for the coefficients"),
-                    dt("Diagnostic Plots"), dd("Choose between:",
-                                              ol(
-                                                li("Residuals"),
-                                                li("Normal Q-Q"),
-                                                li("Scale Location"),
-                                                li("Cook's Distance")
-                                                )),
-                    dt("Raw Data"), dd("The mtcars data in a sort-able table for sniffing out 'odd' samples"),
-                    dt("Diagnostic Data"), dd("Table of cars showing, for the current model:",
-                                              ul(
-                                                li("rstudent"),
-                                                li("hatvalues"),
-                                                li("dffits"),
-                                                li("dfbetas"),
-                                                li("cooks.distance"),
-                                                li("PRESS : i.e. resid / (1 - hatvalues)")
-                                                )),
-                    dt("Custom Plot"), dd("Provides an area to define an arbitrary ggplot or base plot graphics for
-                                          further analysis.  The model itself is available as 'fit()' if you wish to
-                                          plot data off of the model itself.")
-                 )}),
-               p("Source code is available here:", a(href=src_code, target="_blank", src_code))
-               ),
+      tabPanel("Welcome", includeHTML("README.html")),
       tabPanel("Summary", verbatimTextOutput('summary')),
       tabPanel("Coefficients",dataTableOutput('coef')),
       tabPanel("Conf Int",htmlOutput('confint')),

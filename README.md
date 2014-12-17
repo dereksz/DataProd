@@ -1,2 +1,52 @@
-DataProd
-========
+## Welcome to the mtcars Linear Modeler
+
+This modeler allows you to select which coefficients from the list on the left
+that you would like to include in your linear model, and will automatically
+refresh the various tabs in this notebook to reflect your changes.
+
+One useful way to use this tool is to select the tab you want to have open
+and watch while you change the factors to be fitted, the contents of the tab will change 
+in response to you adding and removing explanatory factors to reflect the new model
+that has been created.
+
+The tabs here provide:
+
+Summary
+  : The R 'summary' of the model
+
+Coefficients
+  : The Calculated Coefficients extracted from the summary,
+    and displayed in a table that allows for easy sorting.
+    (E.g. you may want to sort by p-value to see which coefficients
+    have the highest confidence.)
+
+Conf Int
+  : 95% Confidence intervals for the coefficients
+
+Diagnostic Plots
+  : Choose between:
+  
+      1. Residuals
+      1. Normal Q-Q
+      1. Scale Location
+      1. Cook's Distance
+
+Raw Data
+  : The mtcars data in a sort-able table for sniffing out 'odd' samples
+  
+Diagnostic Data
+  : Table of cars showing, for the current model:
+  
+      - `rstudent`
+      - `hatvalues`
+      - `dffits`
+      - `dfbetas`
+      - `cooks.distance`
+      - PRESS : i.e. `resid` / (1 - `hatvalues`)
+    
+Custom Plot
+  : Provides an area to define an arbitrary ggplot or base plot graphics for
+    further analysis.  The model itself is available as `fit()` if you wish to
+    plot data off of the model itself.
+
+Source code is available here: <http://github.com/dereksz/DataProd>
